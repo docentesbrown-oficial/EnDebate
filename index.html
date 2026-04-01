@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La soledad del guardapolvo: cuando el aula se vuelve la última trinchera | Docentes Brown</title>
   <meta name="description" content="Una editorial sobre la soledad docente frente a la violencia, la orfandad institucional y la urgencia de reconstruir una red pública de cuidado." />
-  <meta name="theme-color" content="#f3efe7" />
-
+  <meta name="theme-color" content="#f4efe7" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="La soledad del guardapolvo: cuando el aula se vuelve la última trinchera" />
   <meta property="og:description" content="Una editorial sobre la soledad docente frente a la violencia, la orfandad institucional y la urgencia de reconstruir una red pública de cuidado." />
+  <meta property="og:image" content="./portada-guardapolvo.webp" />
   <meta property="og:site_name" content="Docentes Brown" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,21 +19,20 @@
   <style>
     :root {
       --bg: #f5f1ea;
-      --bg-soft: rgba(255,255,255,0.62);
-      --surface: rgba(255,255,255,0.74);
-      --surface-strong: rgba(255,255,255,0.9);
-      --border: rgba(36, 73, 110, 0.12);
-      --text: #1f2933;
-      --muted: #5e6773;
+      --bg-2: #f7f4ef;
+      --surface: rgba(255,255,255,.72);
+      --surface-strong: rgba(255,255,255,.9);
+      --border: rgba(36,73,110,.12);
+      --text: #1d2731;
+      --muted: #5d6772;
       --accent: #24496e;
       --accent-2: #da6863;
-      --accent-3: #c8d9ea;
-      --shadow: 0 24px 60px rgba(31, 58, 95, 0.10);
-      --shadow-soft: 0 10px 30px rgba(31, 58, 95, 0.08);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --content-width: 780px;
+      --shadow: 0 24px 60px rgba(31,58,95,.12);
+      --shadow-soft: 0 10px 26px rgba(31,58,95,.09);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --content-width: 820px;
     }
 
     * { box-sizing: border-box; }
@@ -43,9 +42,9 @@
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(200, 217, 234, 0.68) 0%, rgba(245, 241, 234, 0) 34%),
-        radial-gradient(circle at top right, rgba(218, 104, 99, 0.10) 0%, rgba(245, 241, 234, 0) 28%),
-        linear-gradient(180deg, #f7f3ec 0%, #f4efe7 52%, #f6f3ee 100%);
+        radial-gradient(circle at top left, rgba(200,217,234,.68) 0%, rgba(245,241,234,0) 30%),
+        radial-gradient(circle at top right, rgba(218,104,99,.12) 0%, rgba(245,241,234,0) 24%),
+        linear-gradient(180deg, #f7f4ee 0%, #f3eee6 52%, #f7f4ef 100%);
       min-height: 100vh;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -53,32 +52,31 @@
     }
 
     img { max-width: 100%; display: block; }
+    button, input, textarea { font: inherit; }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
 
     .progress {
       position: fixed;
-      inset: 0 0 auto 0;
+      inset: 0 0 auto;
       height: 4px;
       z-index: 60;
-      background: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,.18);
       backdrop-filter: blur(10px);
     }
 
     .progress > span {
       display: block;
-      height: 100%;
       width: 0;
+      height: 100%;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 18px rgba(36,73,110,0.35);
-      transition: width 0.08s linear;
+      box-shadow: 0 0 18px rgba(36,73,110,.35);
+      transition: width .08s linear;
     }
 
     .page-shell {
-      width: min(1160px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 28px 0 96px;
-      position: relative;
+      padding: 24px 0 90px;
     }
 
     .topbar {
@@ -90,9 +88,9 @@
       justify-content: space-between;
       gap: 16px;
       padding: 12px 14px;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.58);
+      background: rgba(255,255,255,.58);
       backdrop-filter: blur(18px) saturate(1.15);
       -webkit-backdrop-filter: blur(18px) saturate(1.15);
       border-radius: 999px;
@@ -114,28 +112,21 @@
       place-items: center;
       color: white;
       background: linear-gradient(135deg, var(--accent), #4d6f93);
-      box-shadow: 0 14px 30px rgba(36,73,110,0.26);
+      box-shadow: 0 14px 30px rgba(36,73,110,.26);
       flex-shrink: 0;
     }
 
     .brand-mark svg { width: 20px; height: 20px; }
-
-    .brand-copy {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
     .brand-copy small {
-      font-size: 0.74rem;
-      letter-spacing: 0.14em;
+      display: block;
+      font-size: .74rem;
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--muted);
     }
-
     .brand-copy strong {
-      font-size: 0.96rem;
+      display: block;
+      font-size: .96rem;
       font-weight: 800;
       white-space: nowrap;
       overflow: hidden;
@@ -149,22 +140,13 @@
       flex-shrink: 0;
     }
 
-    .pill,
-    .icon-btn,
-    .menu-item {
-      border: 1px solid var(--border);
-      background: var(--surface-strong);
-      color: var(--text);
-      border-radius: 999px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    .pill, .icon-btn, .menu-item, .comment-cta, .ghost-btn, .primary-btn, .comment-reply-btn {
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
     }
 
-    .pill:hover,
-    .icon-btn:hover,
-    .menu-item:hover {
+    .pill:hover, .icon-btn:hover, .menu-item:hover, .comment-cta:hover, .ghost-btn:hover, .primary-btn:hover, .comment-reply-btn:hover {
       transform: translateY(-1px);
       box-shadow: var(--shadow-soft);
-      border-color: rgba(36,73,110,0.22);
     }
 
     .pill {
@@ -172,34 +154,41 @@
       align-items: center;
       gap: 10px;
       padding: 10px 16px;
-      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
       color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
     }
-
-    .pill svg,
-    .icon-btn svg,
-    .menu-item svg,
-    .share-fab svg { width: 18px; height: 18px; }
 
     .icon-btn {
       width: 44px;
       height: 44px;
       display: grid;
       place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+      color: var(--text);
       cursor: pointer;
     }
 
+    .pill svg, .icon-btn svg, .menu-item svg, .share-fab svg, .comment-cta svg, .comment-reply-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
     .hero {
-      margin-top: 8px;
-      padding: 22px;
-      border-radius: calc(var(--radius-xl) + 6px);
-      background: var(--bg-soft);
-      border: 1px solid rgba(255,255,255,0.5);
+      padding: 28px;
+      border-radius: 36px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.55);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(16px) saturate(1.12);
-      -webkit-backdrop-filter: blur(16px) saturate(1.12);
-      overflow: hidden;
+      backdrop-filter: blur(15px) saturate(1.08);
+      -webkit-backdrop-filter: blur(15px) saturate(1.08);
       position: relative;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -207,59 +196,66 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.02));
+      background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.02));
     }
 
     .hero-grid {
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 24px;
-      align-items: center;
+      gap: 22px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
+      font-size: .78rem;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent);
-      margin-bottom: 18px;
+      margin-bottom: 4px;
     }
 
     .eyebrow::before {
       content: "";
       width: 34px;
       height: 1px;
-      background: rgba(36,73,110,0.34);
+      background: rgba(36,73,110,.34);
+    }
+
+    .hero-text {
+      width: 100%;
     }
 
     .hero-text h1 {
       margin: 0;
+      width: 100%;
+      max-width: none;
       font-family: "Newsreader", Georgia, serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
-      max-width: 12ch;
+      font-size: clamp(2.55rem, 4.8vw, 5.3rem);
+      line-height: .95;
+      letter-spacing: -.04em;
       color: #18212b;
+      text-wrap: balance;
     }
 
     .dek {
       margin: 22px 0 0;
-      font-size: 1.05rem;
+      width: 100%;
+      max-width: none;
+      font-size: clamp(1.06rem, 1rem + .3vw, 1.35rem);
+      line-height: 1.55;
       color: var(--muted);
-      max-width: 58ch;
+      text-wrap: pretty;
     }
 
     .meta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .meta-chip {
@@ -268,10 +264,10 @@
       gap: 8px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(36,73,110,0.10);
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(36,73,110,.10);
       color: #33404d;
-      font-size: 0.92rem;
+      font-size: .92rem;
     }
 
     .feature-image-fullbleed {
@@ -282,17 +278,17 @@
     .feature-image-frame {
       position: relative;
       width: 100%;
-      min-height: clamp(320px, 62vw, 820px);
+      min-height: clamp(320px, 58vw, 880px);
       overflow: hidden;
       background: #e9eef3;
-      box-shadow: 0 24px 50px rgba(36,73,110,0.18);
+      box-shadow: 0 24px 50px rgba(36,73,110,.18);
     }
 
     .feature-image-frame::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(10,15,20,0) 25%, rgba(10,15,20,0.22) 100%);
+      background: linear-gradient(180deg, rgba(10,15,20,0) 30%, rgba(10,15,20,.18) 100%);
       pointer-events: none;
     }
 
@@ -311,11 +307,11 @@
       max-width: calc(100% - 36px);
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,.78);
       backdrop-filter: blur(10px);
-      font-size: 0.86rem;
+      font-size: .86rem;
       color: #44515e;
-      border: 1px solid rgba(36,73,110,0.10);
+      border: 1px solid rgba(36,73,110,.10);
     }
 
     .content-wrap {
@@ -327,8 +323,8 @@
     }
 
     .article-card {
-      background: rgba(255,255,255,0.62);
-      border: 1px solid rgba(255,255,255,0.54);
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.54);
       border-radius: 32px;
       padding: 36px clamp(20px, 4vw, 48px) 44px;
       box-shadow: var(--shadow);
@@ -355,17 +351,17 @@
     .article-body p {
       margin: 0 0 1.45em;
       font-family: "Newsreader", Georgia, serif;
-      font-size: clamp(1.18rem, 1.12rem + 0.25vw, 1.38rem);
+      font-size: clamp(1.18rem, 1.12rem + .25vw, 1.38rem);
       line-height: 1.8;
       color: #202a35;
-      letter-spacing: -0.008em;
+      letter-spacing: -.008em;
     }
 
     .article-body p:first-child::first-letter {
       float: left;
       font-family: "Newsreader", Georgia, serif;
       font-size: 4.7em;
-      line-height: 0.84;
+      line-height: .84;
       padding-right: 12px;
       padding-top: 8px;
       color: var(--accent);
@@ -375,9 +371,9 @@
       margin: 34px 0 36px;
       padding: 28px 24px;
       border-radius: 28px;
-      background: linear-gradient(135deg, rgba(36,73,110,0.10), rgba(218,104,99,0.08));
-      border: 1px solid rgba(36,73,110,0.10);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+      background: linear-gradient(135deg, rgba(36,73,110,.10), rgba(218,104,99,.08));
+      border: 1px solid rgba(36,73,110,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45);
     }
 
     .pull-quote p {
@@ -385,7 +381,7 @@
       font-family: "Newsreader", Georgia, serif;
       font-size: clamp(1.5rem, 1.15rem + 1vw, 2rem);
       line-height: 1.28;
-      letter-spacing: -0.025em;
+      letter-spacing: -.025em;
       color: #18212b;
     }
 
@@ -393,7 +389,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: rgba(36,73,110,0.42);
+      color: rgba(36,73,110,.42);
       margin: 22px 0 28px;
     }
 
@@ -401,13 +397,13 @@
     .section-break::after {
       content: "";
       height: 1px;
-      background: rgba(36,73,110,0.18);
+      background: rgba(36,73,110,.18);
       flex: 1;
     }
 
     .section-break span {
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
+      font-size: .82rem;
+      letter-spacing: .14em;
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -423,8 +419,8 @@
     .side-card {
       padding: 18px;
       border-radius: 24px;
-      background: rgba(255,255,255,0.66);
-      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,.66);
+      border: 1px solid rgba(255,255,255,.55);
       box-shadow: var(--shadow-soft);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -432,13 +428,13 @@
 
     .side-card h3 {
       margin: 0 0 8px;
-      font-size: 0.98rem;
+      font-size: .98rem;
       line-height: 1.2;
     }
 
     .side-card p {
       margin: 0;
-      font-size: 0.94rem;
+      font-size: .94rem;
       color: var(--muted);
       line-height: 1.55;
     }
@@ -449,24 +445,24 @@
       margin-top: 14px;
     }
 
-    .share-stack .menu-item {
+    .menu-item {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       gap: 10px;
       padding: 12px 14px;
-      cursor: pointer;
-    }
-
-    .menu-item {
       border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.82);
+      color: var(--text);
+      cursor: pointer;
     }
 
     .comments-wrap {
       margin-top: 34px;
       padding-top: 26px;
-      border-top: 1px solid rgba(36,73,110,0.12);
+      border-top: 1px solid rgba(36,73,110,.12);
     }
 
     .comments-toggle {
@@ -477,8 +473,8 @@
       gap: 16px;
       padding: 16px 18px;
       border-radius: 20px;
-      border: 1px solid rgba(36,73,110,0.12);
-      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(36,73,110,.12);
+      background: rgba(255,255,255,.78);
       color: var(--accent);
       font-weight: 800;
       cursor: pointer;
@@ -494,7 +490,7 @@
     .comments-toggle svg {
       width: 18px;
       height: 18px;
-      transition: transform 0.2s ease;
+      transition: transform .2s ease;
       flex-shrink: 0;
     }
 
@@ -506,8 +502,8 @@
       margin-top: 16px;
       padding: 20px;
       border-radius: 24px;
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.6);
       box-shadow: var(--shadow-soft);
     }
 
@@ -529,7 +525,7 @@
     .comments-subtitle {
       margin: 4px 0 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: .92rem;
     }
 
     .comment-cta {
@@ -538,12 +534,12 @@
       gap: 10px;
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(36,73,110,0.12);
-      background: linear-gradient(135deg, rgba(36,73,110,0.98), rgba(77,111,147,0.98));
+      border: 1px solid rgba(36,73,110,.12);
+      background: linear-gradient(135deg, rgba(36,73,110,.98), rgba(77,111,147,.98));
       color: white;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 14px 30px rgba(36,73,110,0.18);
+      box-shadow: 0 14px 30px rgba(36,73,110,.18);
     }
 
     .comments-list {
@@ -555,16 +551,16 @@
       margin: 0;
       padding: 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,.72);
       color: var(--muted);
-      border: 1px dashed rgba(36,73,110,0.18);
+      border: 1px dashed rgba(36,73,110,.18);
     }
 
     .comment-card {
       padding: 18px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(36,73,110,0.10);
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(36,73,110,.10);
     }
 
     .comment-meta {
@@ -581,7 +577,7 @@
     }
 
     .comment-date {
-      font-size: 0.86rem;
+      font-size: .86rem;
       color: var(--muted);
     }
 
@@ -607,8 +603,8 @@
       gap: 8px;
       padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(36,73,110,0.12);
-      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(36,73,110,.12);
+      background: rgba(255,255,255,.72);
       color: var(--accent);
       font-weight: 700;
       cursor: pointer;
@@ -617,7 +613,7 @@
     .comment-children {
       margin-top: 14px;
       padding-left: 16px;
-      border-left: 2px solid rgba(36,73,110,0.10);
+      border-left: 2px solid rgba(36,73,110,.10);
       display: grid;
       gap: 12px;
     }
@@ -634,7 +630,7 @@
       display: grid;
       place-items: center;
       padding: 18px;
-      background: rgba(18, 26, 35, 0.42);
+      background: rgba(18,26,35,.42);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
@@ -643,8 +639,8 @@
       width: min(620px, 100%);
       padding: 22px;
       border-radius: 28px;
-      background: rgba(255,255,255,0.96);
-      border: 1px solid rgba(255,255,255,0.72);
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(255,255,255,.72);
       box-shadow: var(--shadow);
     }
 
@@ -665,7 +661,7 @@
     .comment-dialog p {
       margin: 6px 0 0;
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: .94rem;
       line-height: 1.5;
     }
 
@@ -682,25 +678,24 @@
     .comment-field label {
       font-weight: 700;
       color: #22313f;
-      font-size: 0.94rem;
+      font-size: .94rem;
     }
 
     .comment-field input,
     .comment-field textarea {
       width: 100%;
-      border: 1px solid rgba(36,73,110,0.14);
+      border: 1px solid rgba(36,73,110,.14);
       border-radius: 16px;
-      background: rgba(248,250,252,0.92);
+      background: rgba(248,250,252,.92);
       padding: 14px 16px;
-      font: inherit;
       color: var(--text);
       outline: none;
     }
 
     .comment-field input:focus,
     .comment-field textarea:focus {
-      border-color: rgba(36,73,110,0.36);
-      box-shadow: 0 0 0 4px rgba(36,73,110,0.08);
+      border-color: rgba(36,73,110,.36);
+      box-shadow: 0 0 0 4px rgba(36,73,110,.08);
     }
 
     .comment-field textarea {
@@ -722,8 +717,8 @@
       justify-content: center;
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(36,73,110,0.12);
-      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(36,73,110,.12);
+      background: rgba(255,255,255,.86);
       color: var(--accent);
       font-weight: 700;
       cursor: pointer;
@@ -740,20 +735,20 @@
       color: white;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 16px 28px rgba(36,73,110,0.20);
+      box-shadow: 0 16px 28px rgba(36,73,110,.20);
     }
 
     .footer-note {
       margin-top: 36px;
       padding-top: 18px;
-      border-top: 1px solid rgba(36,73,110,0.12);
+      border-top: 1px solid rgba(36,73,110,.12);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: .92rem;
     }
 
     .back-top {
@@ -777,9 +772,9 @@
       border-radius: 50%;
       color: white;
       background: linear-gradient(135deg, var(--accent), #3e678c);
-      box-shadow: 0 18px 34px rgba(36,73,110,0.32);
+      box-shadow: 0 18px 34px rgba(36,73,110,.32);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
     .share-fab:hover { transform: translateY(-2px) scale(1.02); }
@@ -792,15 +787,15 @@
       width: min(340px, calc(100vw - 24px));
       padding: 16px;
       border-radius: 26px;
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(255,255,255,0.64);
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(255,255,255,.64);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px) saturate(1.14);
       -webkit-backdrop-filter: blur(18px) saturate(1.14);
-      transform: translateY(12px) scale(0.98);
+      transform: translateY(12px) scale(.98);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.22s ease, transform 0.22s ease;
+      transition: opacity .22s ease, transform .22s ease;
     }
 
     .share-panel.open {
@@ -825,7 +820,7 @@
     .share-head p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: .9rem;
       line-height: 1.4;
     }
 
@@ -835,26 +830,15 @@
       gap: 10px;
     }
 
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      transform: translate(-50%, 20px);
-      z-index: 90;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(24,33,43,0.92);
-      color: white;
-      font-size: 0.92rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.20);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
+    .status-note {
+      margin: 0 0 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(36,73,110,.06);
+      border: 1px solid rgba(36,73,110,.08);
+      color: #42505e;
+      font-size: .93rem;
+      line-height: 1.5;
     }
 
     .sr-only {
@@ -869,11 +853,32 @@
       border: 0;
     }
 
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 20px);
+      z-index: 90;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(24,33,43,.92);
+      color: white;
+      font-size: .92rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
     @media (max-width: 1024px) {
       .content-wrap {
         grid-template-columns: minmax(0, 1fr);
       }
-
       .sidebar {
         position: static;
         order: -1;
@@ -884,45 +889,30 @@
 
     @media (max-width: 860px) {
       .page-shell {
-        width: min(100% - 20px, 1160px);
+        width: min(100% - 20px, 1180px);
         padding-top: 14px;
       }
-
       .topbar {
         top: 10px;
       }
-
       .hero {
-        padding: 16px;
+        padding: 18px;
         border-radius: 28px;
       }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
       .feature-image-frame {
-        min-height: clamp(260px, 58vw, 520px);
+        min-height: clamp(260px, 60vw, 540px);
       }
-
-      .comments-panel {
-        padding: 16px;
-      }
-
-      .comment-dialog {
-        padding: 18px;
-        border-radius: 24px;
-      }
-
-      .hero-text h1 {
-        max-width: none;
-      }
-
       .article-card {
         border-radius: 28px;
         padding: 28px 18px 34px;
       }
-
+      .comments-panel {
+        padding: 16px;
+      }
+      .comment-dialog {
+        padding: 18px;
+        border-radius: 24px;
+      }
       .sidebar {
         grid-template-columns: 1fr;
       }
@@ -933,29 +923,17 @@
         gap: 10px;
         padding: 10px 12px;
       }
-
-      .brand-copy small { font-size: 0.68rem; }
-      .brand-copy strong { font-size: 0.88rem; }
-
+      .brand-copy small { font-size: .68rem; }
+      .brand-copy strong { font-size: .88rem; }
       .top-actions .pill span { display: none; }
       .top-actions .pill { padding: 10px 12px; }
-
       .meta-row { gap: 10px; }
-      .meta-chip { font-size: 0.86rem; }
-
+      .meta-chip { font-size: .86rem; }
       .article-body p {
         font-size: 1.18rem;
         line-height: 1.75;
       }
-
-      .share-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .feature-image-fullbleed {
-        margin-top: 20px;
-      }
-
+      .feature-image-fullbleed { margin-top: 20px; }
       .image-caption {
         left: 12px;
         right: 12px;
@@ -963,11 +941,9 @@
         max-width: none;
         border-radius: 16px;
       }
-
       .comments-toggle {
         padding: 14px 16px;
       }
-
       .comment-children {
         padding-left: 12px;
       }
@@ -1021,9 +997,9 @@
       <section class="hero" aria-labelledby="articleTitle">
         <div class="hero-grid">
           <div class="hero-text">
-            <div class="eyebrow" id="articleKicker">Editorial · Escuela pública y cuidado</div>
-            <h1 id="articleTitle">La soledad del guardapolvo: Cuando el aula se vuelve la última trinchera</h1>
-            <p class="dek" id="articleSummary">Una reflexión sobre la soledad creciente del trabajo docente frente a la violencia, el desborde institucional y la urgencia de reconstruir una red comunitaria que sostenga la escuela pública.</p>
+            <div class="eyebrow" id="articleKicker"></div>
+            <h1 id="articleTitle"></h1>
+            <p class="dek" id="articleSummary"></p>
 
             <div class="meta-row">
               <span class="meta-chip" id="articleAuthor">
@@ -1031,14 +1007,23 @@
                   <path d="M20 21a8 8 0 0 0-16 0"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                Docentes Brown
+                <span></span>
+              </span>
+              <span class="meta-chip" id="articleDate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8 2v4"></path>
+                  <path d="M16 2v4"></path>
+                  <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
+                <span></span>
               </span>
               <span class="meta-chip" id="readingTime">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                4 min de lectura
+                <span></span>
               </span>
             </div>
           </div>
@@ -1047,20 +1032,20 @@
 
       <figure class="feature-image-fullbleed" aria-label="Imagen principal de la nota">
         <div class="feature-image-frame">
-          <img id="articleImage" class="hero-image" alt="Imagen central de la nota" />
-          <figcaption class="image-caption" id="imageCaption">Imagen central de la edición</figcaption>
+          <img id="articleImage" class="hero-image" alt="" />
+          <figcaption class="image-caption" id="imageCaption"></figcaption>
         </div>
       </figure>
 
       <div class="content-wrap">
         <article class="article-card" id="articulo">
           <div class="lead-box">
-            <p id="articleIntro">Lo que está pasando hoy en nuestras escuelas no solo nos preocupa; nos duele en una dimensión que a veces cuesta poner en palabras. En medio de la saturación informativa, de los debates apurados sobre estadísticas, de las promesas de gestión y de los diagnósticos livianos que circulan con facilidad, hay una realidad silenciosa que se espesa día tras día en los pasillos de nuestro país: la profunda soledad de los y las docentes frente a la violencia.</p>
+            <p id="articleIntro"></p>
           </div>
 
           <div class="article-body" id="articleBody"></div>
 
-          <div class="footer-note footer-note-clean">
+          <div class="footer-note">
             <a class="back-top" href="#top">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m18 15-6-6-6 6"></path>
@@ -1109,8 +1094,8 @@
             <div class="share-stack">
               <button class="menu-item share-action" type="button" data-platform="whatsapp">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M16.75 13.96c.25.13 1.47.72 1.7.8.23.09.38.13.54-.13.16-.25.63-.8.77-.96.14-.17.29-.18.54-.06.25.13 1.06.39 2.02 1.24.75.67 1.26 1.5 1.4 1.75.15.25.02.39-.11.52-.12.12-.25.31-.38.46-.13.16-.26.33-.38.5-.13.18-.28.38-.12.63.15.25.69 1.11 1.48 1.8 1.02.91 1.88 1.19 2.15 1.32.27.12.43.11.59-.07.16-.17.69-.8.88-1.07.18-.27.37-.23.63-.14.26.09 1.65.78 1.93.92.28.14.46.21.53.33.06.12.06.73-.17 1.43-.23.7-1.33 1.37-1.82 1.43-.47.06-1.08.09-1.74-.12-.4-.13-.92-.3-1.58-.58-2.78-1.2-4.59-4-4.73-4.18-.13-.18-1.13-1.5-1.13-2.87 0-1.37.72-2.04.98-2.32.25-.27.55-.34.73-.34.18 0 .36 0 .52.01.17.01.4-.06.62.47.23.54.77 1.86.84 2 .07.14.11.31.02.49-.08.18-.12.29-.25.45-.12.15-.27.34-.39.46-.12.12-.24.26-.1.51.15.25.66 1.09 1.41 1.76.97.86 1.79 1.13 2.04 1.26.25.13.39.11.54-.07.16-.19.66-.77.83-1.03.17-.26.34-.22.58-.13Z" transform="translate(-6.8 -6.8) scale(0.68)" />
                   <path d="M20.52 3.48A11.78 11.78 0 0 0 3.82 20.17L2 22l1.9-.48A11.78 11.78 0 1 0 20.52 3.48Z"></path>
+                  <path d="M7.3 7.9c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.3.5c-.1.2-.2.3-.1.5.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.2.1.4 0 .5-.1l.8-1c.1-.2.3-.2.5-.1l2.3 1.1c.2.1.4.2.4.4 0 .3-.1 1.6-.8 2.2-.6.5-1.3.7-2 .7-.6 0-1.3-.1-2.2-.5a10.3 10.3 0 0 1-3.7-2.5 9.6 9.6 0 0 1-2.5-3.4c-.4-.8-.6-1.7-.6-2.4 0-.8.2-1.5.7-2.1Z"></path>
                 </svg>
                 WhatsApp
               </button>
@@ -1125,6 +1110,17 @@
               <button class="menu-item share-action" type="button" data-platform="facebook">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H17V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4V11H8v3h2.2v8h3.3Z"/></svg>
                 Facebook
+              </button>
+              <button class="menu-item share-action" type="button" data-platform="linkedin">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.97 1.97 0 1 0 3.2 4.94a1.97 1.97 0 0 0 3.95 0ZM20.44 13.03c0-3.03-1.62-4.44-3.79-4.44-1.74 0-2.52.96-2.95 1.63V8.5h-3.37c.04 1.15 0 11.5 0 11.5h3.37v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.02 1.88 2.52V20h3.38v-6.97Z"/></svg>
+                LinkedIn
+              </button>
+              <button class="menu-item share-action" type="button" data-platform="copy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copiar enlace
               </button>
             </div>
           </section>
@@ -1158,64 +1154,23 @@
     </div>
 
     <div class="share-grid">
-      <button class="menu-item share-action" type="button" data-platform="native">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="18" cy="5" r="3"></circle>
-          <circle cx="6" cy="12" r="3"></circle>
-          <circle cx="18" cy="19" r="3"></circle>
-          <path d="M8.59 13.51 15.42 17.49"></path>
-          <path d="M15.41 6.51 8.59 10.49"></path>
-        </svg>
-        Compartir
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="whatsapp">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M16.75 13.96c.25.13 1.47.72 1.7.8.23.09.38.13.54-.13.16-.25.63-.8.77-.96.14-.17.29-.18.54-.06.25.13 1.06.39 2.02 1.24.75.67 1.26 1.5 1.4 1.75.15.25.02.39-.11.52-.12.12-.25.31-.38.46-.13.16-.26.33-.38.5-.13.18-.28.38-.12.63.15.25.69 1.11 1.48 1.8 1.02.91 1.88 1.19 2.15 1.32.27.12.43.11.59-.07.16-.17.69-.8.88-1.07.18-.27.37-.23.63-.14.26.09 1.65.78 1.93.92.28.14.46.21.53.33.06.12.06.73-.17 1.43-.23.7-1.33 1.37-1.82 1.43-.47.06-1.08.09-1.74-.12-.4-.13-.92-.3-1.58-.58-2.78-1.2-4.59-4-4.73-4.18-.13-.18-1.13-1.5-1.13-2.87 0-1.37.72-2.04.98-2.32.25-.27.55-.34.73-.34.18 0 .36 0 .52.01.17.01.4-.06.62.47.23.54.77 1.86.84 2 .07.14.11.31.02.49-.08.18-.12.29-.25.45-.12.15-.27.34-.39.46-.12.12-.24.26-.1.51.15.25.66 1.09 1.41 1.76.97.86 1.79 1.13 2.04 1.26.25.13.39.11.54-.07.16-.19.66-.77.83-1.03.17-.26.34-.22.58-.13Z" transform="translate(-6.8 -6.8) scale(0.68)" />
-          <path d="M20.52 3.48A11.78 11.78 0 0 0 3.82 20.17L2 22l1.9-.48A11.78 11.78 0 1 0 20.52 3.48Z"></path>
-        </svg>
-        WhatsApp
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="telegram">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.944 4.668a1.5 1.5 0 0 0-1.71-.23L3.56 12.6c-.65.3-.61 1.24.07 1.48l4.07 1.43 1.58 4.93a.98.98 0 0 0 1.73.26l2.26-3.06 4.05 3.12a1.5 1.5 0 0 0 2.38-.86L22 6.055a1.5 1.5 0 0 0-.056-1.387ZM9.1 14.88l8.84-6.4-7.22 7.65-.27 2.1-.87-3.35-.48-.16Z"/></svg>
-        Telegram
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="x">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.26l-4.9-7.43L5.53 22H2.4l7.23-8.27L1.95 2H8.4l4.43 6.77L18.9 2Zm-1.1 18h1.73L7.46 3.9H5.6L17.8 20Z"/></svg>
-        X / Twitter
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H17V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4V11H8v3h2.2v8h3.3Z"/></svg>
-        Facebook
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="linkedin">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5a1.94 1.94 0 1 1 0-3.88 1.94 1.94 0 0 1 0 3.88ZM5.3 9.98h3.3V20H5.3V9.98Zm5.16 0h3.16v1.37h.04c.44-.84 1.52-1.72 3.13-1.72 3.35 0 3.97 2.2 3.97 5.05V20h-3.3v-4.71c0-1.12-.02-2.55-1.55-2.55-1.56 0-1.79 1.21-1.79 2.47V20h-3.3V9.98Z"/></svg>
-        LinkedIn
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-          <path d="m3 7 9 6 9-6"></path>
-        </svg>
-        Email
-      </button>
-      <button class="menu-item share-action" type="button" data-platform="copy">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-        </svg>
-        Copiar enlace
-      </button>
+      <button class="menu-item share-action" type="button" data-platform="whatsapp">WhatsApp</button>
+      <button class="menu-item share-action" type="button" data-platform="telegram">Telegram</button>
+      <button class="menu-item share-action" type="button" data-platform="x">X / Twitter</button>
+      <button class="menu-item share-action" type="button" data-platform="facebook">Facebook</button>
+      <button class="menu-item share-action" type="button" data-platform="linkedin">LinkedIn</button>
+      <button class="menu-item share-action" type="button" data-platform="copy">Copiar enlace</button>
     </div>
   </section>
 
-  <div class="comment-modal" id="commentModal" hidden aria-hidden="true">
+  <div class="comment-modal" id="commentModal" hidden>
     <div class="comment-dialog" role="dialog" aria-modal="true" aria-labelledby="commentDialogTitle">
       <div class="comment-dialog-head">
         <div>
-          <h3 id="commentDialogTitle">Dejar un comentario</h3>
-          <p id="commentDialogHint">Tu comentario quedará guardado en este navegador.</p>
+          <h3 id="commentDialogTitle">Comentar</h3>
+          <p id="commentDialogHint">Tu comentario se publica en esta nota.</p>
         </div>
-        <button class="icon-btn" id="closeCommentModal" type="button" aria-label="Cerrar ventana de comentarios">
+        <button class="icon-btn" id="closeCommentModal" type="button" aria-label="Cerrar ventana de comentario">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 6 6 18"></path>
             <path d="m6 6 12 12"></path>
@@ -1227,52 +1182,42 @@
         <input type="hidden" id="commentParentId" value="" />
         <div class="comment-field">
           <label for="commentName">Nombre</label>
-          <input id="commentName" name="commentName" type="text" maxlength="60" placeholder="Tu nombre o seudónimo" />
+          <input id="commentName" name="author" type="text" maxlength="80" placeholder="Tu nombre" required />
         </div>
         <div class="comment-field">
           <label for="commentText">Comentario</label>
-          <textarea id="commentText" name="commentText" maxlength="1200" placeholder="Escribí tu comentario..." required></textarea>
+          <textarea id="commentText" name="comment" maxlength="3000" placeholder="Escribí tu comentario..." required></textarea>
         </div>
+        <div class="comment-field" style="display:none" aria-hidden="true">
+          <label for="commentWebsite">Sitio web</label>
+          <input id="commentWebsite" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
         <div class="comment-form-actions">
           <button class="ghost-btn" id="cancelCommentModal" type="button">Cancelar</button>
-          <button class="primary-btn" type="submit">Publicar comentario</button>
+          <button class="primary-btn" id="submitCommentBtn" type="submit">Publicar comentario</button>
         </div>
       </form>
     </div>
   </div>
 
+  <iframe name="commentSubmitFrame" id="commentSubmitFrame" class="sr-only"></iframe>
+
+  <form id="commentPostBridge" class="sr-only" method="POST" target="commentSubmitFrame">
+    <input type="hidden" name="note_id" id="bridgeNoteId" />
+    <input type="hidden" name="parent_id" id="bridgeParentId" />
+    <input type="hidden" name="author" id="bridgeAuthor" />
+    <input type="hidden" name="comment" id="bridgeComment" />
+    <input type="hidden" name="website" id="bridgeWebsite" />
+    <input type="hidden" name="ua" id="bridgeUserAgent" />
+  </form>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const ARTICLE_DATA = {
-      siteName: 'Docentes Brown',
-      kicker: 'Editorial · Escuela pública y cuidado',
-      title: "La soledad del guardapolvo: cuando el aula se vuelve la última trinchera",
-      summary: "Una editorial sobre la soledad docente frente a la violencia, la orfandad institucional y la urgencia de reconstruir una red pública de cuidado.",
-      intro: "Lo que está pasando hoy en nuestras escuelas no solo nos preocupa; nos duele en una dimensión que a veces cuesta poner en palabras. En medio de la saturación informativa, de los debates apurados sobre estadísticas, de las promesas de gestión y de los diagnósticos livianos que circulan con facilidad, hay una realidad silenciosa que se espesa día tras día en los pasillos de nuestro país: la profunda soledad de los y las docentes frente a la violencia.",
-      author: 'Docentes Brown',
-      imageAlt: 'Guardapolvo blanco colgado frente a una pared azul intensa',
-      imageCaption: 'La soledad del guardapolvo',
-      image: './portada-guardapolvo.webp',
-      paragraphs: [
-        "Lo que está pasando hoy en nuestras escuelas no solo nos preocupa; nos duele en una dimensión que a veces cuesta poner en palabras. En medio de la saturación informativa, de los debates apurados sobre estadísticas, de las promesas de gestión y de los diagnósticos livianos que circulan con facilidad, hay una realidad silenciosa que se espesa día tras día en los pasillos de nuestro país: la profunda soledad de los y las docentes frente a la violencia.",
-        "No estamos hablando de un fenómeno aislado, ni de un episodio excepcional, ni de una simple “mala racha” en la convivencia escolar. Estamos frente a una crisis de los lazos sociales que encuentra en la escuela uno de sus escenarios más visibles, más sensibles y más expuestos. Y ahí aparece una de las cuestiones más inquietantes del presente: mientras la sociedad se fragmenta, mientras las instituciones pierden capacidad de contención y mientras el conflicto se multiplica sin respuestas de fondo, el docente ha quedado en una posición de primera línea que empieza a parecerse peligrosamente al abandono.",
-        "No es solo la falta de recursos, aunque la precariedad material sea parte del problema y muchas veces su telón de fondo más persistente. No es solo el deterioro edilicio, la sobrecarga burocrática, los salarios insuficientes o la ausencia de equipos completos para acompañar situaciones complejas. Es algo todavía más corrosivo, más íntimo y más desgastante: la sensación de estar sosteniendo el peso de un sistema entero con las manos desnudas. La percepción cotidiana de que, ante el desborde, siempre hay un cuerpo docente disponible para absorber lo que nadie más logra tramitar.",
-        "Esa soledad se manifiesta en escenas mínimas, aparentemente rutinarias, que sin embargo cambiaron de sentido. Una de ellas es el acto de cerrar la puerta del aula. Lo que antes representaba el inicio de un espacio de trabajo pedagógico, de encuentro, de cuidado y de construcción colectiva, hoy muchas veces se vive como un gesto defensivo, casi como una clausura. Del otro lado de esa puerta, el contexto empuja, irrumpe, exige, desborda. Y del lado de adentro, demasiadas veces, queda un docente intentando enseñar mientras también contiene, escucha, media, calma, previene, registra y resiste.",
-        "La violencia, en sus múltiples formas —verbal, física, simbólica, institucional, vincular—, no llega a la escuela como algo ajeno. No entra desde afuera como si la institución pudiera mantenerse inmune a lo que sucede en la trama social. La escuela recibe, procesa y expresa muchas de las fracturas de una época. Allí impactan la desigualdad, la incertidumbre, la desorganización de los vínculos, el debilitamiento de referencias comunes, la intemperie material y subjetiva con la que llegan niñas, niños, adolescentes y también las propias familias. Lo preocupante es que, frente a ese cuadro, demasiadas veces el docente queda no solo expuesto, sino también responsabilizado en soledad por resolver lo que excede ampliamente su función.",
-        "Y ahí aparece otra injusticia de nuestro tiempo: se le exige a la escuela que repare lo que la política pública no alcanza a contener, que organice lo que el tejido social deshilacha, que sostenga subjetividades heridas, que prevenga violencias estructurales y que, además, lo haga sin fisuras, sin cansancio y sin conflicto. Como si enseñar en estas condiciones no fuera ya una tarea de enorme complejidad. Como si la vocación pudiera reemplazar indefinidamente a las decisiones institucionales. Como si el compromiso docente debiera funcionar como un recurso infinito frente a todas las ausencias.",
-        "Estamos, entonces, ante una verdadera orfandad institucional. Y esa orfandad no se resuelve solo con protocolos escritos desde un escritorio, ni con discursos formales sobre la convivencia, ni con declaraciones que reconocen los problemas pero no modifican las condiciones reales en las que se trabaja. Se resuelve con respaldo concreto, con presencia efectiva, con equipos interdisciplinarios suficientes, con tiempos institucionales cuidados, con formación situada, con decisiones políticas claras y, sobre todo, con la validación real de nuestra autoridad profesional. No podemos permitir que la vocación se convierta en un escudo humano contra la desidia.",
-        "Porque cuando hablamos de autoridad docente, no estamos hablando de autoritarismo ni de nostalgia por modelos escolares cerrados. Hablamos de algo mucho más elemental y más democrático: del derecho de quienes enseñan a trabajar en condiciones de respeto, de ser escuchados, de contar con legitimidad institucional para intervenir, de no quedar solos frente a situaciones que ponen en tensión el sentido mismo de la escuela. Sin esa autoridad respaldada colectivamente, la tarea pedagógica se erosiona, el vínculo se debilita y la experiencia escolar empieza a vaciarse de horizonte.",
-        "Desde este espacio siempre hemos sostenido que la institucionalidad es una garantía de la democracia. Pero esa institucionalidad no puede ser una estructura de hormigón que observa desde lejos mientras abajo todo arde. Tiene que ser un refugio dinámico, una presencia concreta, una red activa que acompañe, proteja y ordene. No alcanza con enunciar que la escuela importa: hay que demostrarlo cuidando a quienes la hacen posible todos los días.",
-        "Sostener la escuela pública hoy no es solamente garantizar que los edificios estén en pie, que el calendario se cumpla o que las puertas permanezcan abiertas. Sostener la escuela pública es cuidar a quienes la habitan, la organizan y le dan sentido. Es comprender que no hay proyecto educativo posible si el trabajo docente se vuelve una experiencia de desgaste solitario. Es asumir que cuando un docente siente que está solo frente al desborde, no fracasa una persona ni un equipo en particular: retrocede el Estado, retrocede la comunidad y retrocede la idea misma de lo público como espacio de amparo y construcción común.",
-        "También hay que animarse a decir algo más: la naturalización de esta soledad es una forma de violencia. Que un docente se acostumbre a convivir con el miedo, con la desprotección o con la incertidumbre permanente no puede transformarse en parte “normal” del trabajo. Que tenga que medir cada palabra, cada intervención o cada límite desde la lógica de la autopreservación tampoco es normal. Que deba volver a su casa cargando no solo planificación, correcciones y reuniones, sino además escenas de angustia, humillación o amenaza, no puede ser leído como un costo inevitable de la profesión.",
-        "Por eso hay que romper el aislamiento. Y romperlo implica mucho más que expresar solidaridad en momentos de crisis. Implica reconstruir una conversación social honesta sobre qué escuela queremos, qué lugar le damos a quienes enseñan y qué responsabilidades estamos dispuestos a asumir colectivamente. Implica dejar de mirar al docente como un fusible siempre disponible para evitar que todo estalle. Implica entender que cuidar a la docencia no es defender un privilegio sectorial: es proteger una de las bases más importantes de cualquier sociedad democrática.",
-        "No queremos negar lo que nos pasa. No queremos taparlo con eufemismos ni con frases hechas. El primer acto de resistencia política sigue siendo nombrar la realidad. Reconocer que nos duele, que nos cansa, que nos preocupa y que muchas veces nos desborda no es un gesto de debilidad; es el punto de partida para dejar de sostener todo en soledad y empezar a reconstruir, nuevamente, una red comunitaria, institucional y política que esté a la altura del momento.",
-        "La soledad del guardapolvo no es un destino inevitable. Es una señal de alarma. Una advertencia. Un llamado urgente a revisar prioridades, a asumir responsabilidades y a recuperar la densidad colectiva que la escuela necesita para seguir siendo mucho más que un lugar al que se va a cumplir horario. Porque si cada docente entra a su escuela sintiendo que entra solo a una batalla que no pidió librar, entonces lo que está en crisis no es únicamente la convivencia escolar: es el pacto social que debería sostenerla.",
-        "Y frente a eso no alcanza con preocuparse. Hace falta debatir, hace falta organizarse, hace falta construir unidad y hace falta decidir, de una vez, que nunca más un docente quede solo allí donde debería estar más acompañado que nunca."
-],
-      pullQuote: "“Cuando un docente siente que está solo frente al desborde, retrocede el Estado, retrocede la comunidad y retrocede la idea misma de lo público.”"
-    };
+    const COMMENTS_API_URL = 'PEGAR_AQUI_LA_URL_DEL_WEB_APP_DE_APPS_SCRIPT';
+    const NOTE_ID = 'la-soledad-del-guardapolvo';
+    const ARTICLE_DATA = {"kicker": "Editorial · Escuela pública y cuidado", "title": "La soledad del guardapolvo: cuando el aula se vuelve la última trinchera", "summary": "Una editorial sobre la soledad docente frente a la violencia, la orfandad institucional y la urgencia de reconstruir una red pública de cuidado.", "author": "Docentes Brown", "date": "Abril 2026", "readTime": "7 min de lectura", "imageSrc": "./portada-guardapolvo.webp", "imageAlt": "Guardapolvo blanco colgado sobre una pared azul", "imageCaption": "La escuela pública también se sostiene cuidando a quienes la habitan todos los días.", "intro": "Lo que está pasando hoy en nuestras escuelas no solo nos preocupa; nos duele en una dimensión que a veces cuesta poner en palabras. En medio de la saturación informativa, de los debates apurados sobre estadísticas, de las promesas de gestión y de los diagnósticos livianos que circulan con facilidad, hay una realidad silenciosa que se espesa día tras día en los pasillos de nuestro país: la profunda soledad de los y las docentes frente a la violencia.", "body": ["No estamos hablando de un fenómeno aislado, ni de un episodio excepcional, ni de una simple “mala racha” en la convivencia escolar. Estamos frente a una crisis de los lazos sociales que encuentra en la escuela uno de sus escenarios más visibles, más sensibles y más expuestos. Y ahí aparece una de las cuestiones más inquietantes del presente: mientras la sociedad se fragmenta, mientras las instituciones pierden capacidad de contención y mientras el conflicto se multiplica sin respuestas de fondo, el docente ha quedado en una posición de primera línea que empieza a parecerse peligrosamente al abandono.", "No es solo la falta de recursos, aunque la precariedad material sea parte del problema y muchas veces su telón de fondo más persistente. No es solo el deterioro edilicio, la sobrecarga burocrática, los salarios insuficientes o la ausencia de equipos completos para acompañar situaciones complejas. Es algo todavía más corrosivo, más íntimo y más desgastante: la sensación de estar sosteniendo el peso de un sistema entero con las manos desnudas. La percepción cotidiana de que, ante el desborde, siempre hay un cuerpo docente disponible para absorber lo que nadie más logra tramitar.", "Esa soledad se manifiesta en escenas mínimas, aparentemente rutinarias, que sin embargo cambiaron de sentido. Una de ellas es el acto de cerrar la puerta del aula. Lo que antes representaba el inicio de un espacio de trabajo pedagógico, de encuentro, de cuidado y de construcción colectiva, hoy muchas veces se vive como un gesto defensivo, casi como una clausura. Del otro lado de esa puerta, el contexto empuja, irrumpe, exige, desborda. Y del lado de adentro, demasiadas veces, queda un docente intentando enseñar mientras también contiene, escucha, media, calma, previene, registra y resiste.", "La violencia, en sus múltiples formas —verbal, física, simbólica, institucional, vincular—, no llega a la escuela como algo ajeno. No entra desde afuera como si la institución pudiera mantenerse inmune a lo que sucede en la trama social. La escuela recibe, procesa y expresa muchas de las fracturas de una época. Allí impactan la desigualdad, la incertidumbre, la desorganización de los vínculos, el debilitamiento de referencias comunes, la intemperie material y subjetiva con la que llegan niñas, niños, adolescentes y también las propias familias. Lo preocupante es que, frente a ese cuadro, demasiadas veces el docente queda no solo expuesto, sino también responsabilizado en soledad por resolver lo que excede ampliamente su función.", "Y ahí aparece otra injusticia de nuestro tiempo: se le exige a la escuela que repare lo que la política pública no alcanza a contener, que organice lo que el tejido social deshilacha, que sostenga subjetividades heridas, que prevenga violencias estructurales y que, además, lo haga sin fisuras, sin cansancio y sin conflicto. Como si enseñar en estas condiciones no fuera ya una tarea de enorme complejidad. Como si la vocación pudiera reemplazar indefinidamente a las decisiones institucionales. Como si el compromiso docente debiera funcionar como un recurso infinito frente a todas las ausencias.", "Estamos, entonces, ante una verdadera orfandad institucional. Y esa orfandad no se resuelve solo con protocolos escritos desde un escritorio, ni con discursos formales sobre la convivencia, ni con declaraciones que reconocen los problemas pero no modifican las condiciones reales en las que se trabaja. Se resuelve con respaldo concreto, con presencia efectiva, con equipos interdisciplinarios suficientes, con tiempos institucionales cuidados, con formación situada, con decisiones políticas claras y, sobre todo, con la validación real de nuestra autoridad profesional. No podemos permitir que la vocación se convierta en un escudo humano contra la desidia.", "Porque cuando hablamos de autoridad docente, no estamos hablando de autoritarismo ni de nostalgia por modelos escolares cerrados. Hablamos de algo mucho más elemental y más democrático: del derecho de quienes enseñan a trabajar en condiciones de respeto, de ser escuchados, de contar con legitimidad institucional para intervenir, de no quedar solos frente a situaciones que ponen en tensión el sentido mismo de la escuela. Sin esa autoridad respaldada colectivamente, la tarea pedagógica se erosiona, el vínculo se debilita y la experiencia escolar empieza a vaciarse de horizonte.", "Desde este espacio siempre hemos sostenido que la institucionalidad es una garantía de la democracia. Pero esa institucionalidad no puede ser una estructura de hormigón que observa desde lejos mientras abajo todo arde. Tiene que ser un refugio dinámico, una presencia concreta, una red activa que acompañe, proteja y ordene. No alcanza con enunciar que la escuela importa: hay que demostrarlo cuidando a quienes la hacen posible todos los días.", "Sostener la escuela pública hoy no es solamente garantizar que los edificios estén en pie, que el calendario se cumpla o que las puertas permanezcan abiertas. Sostener la escuela pública es cuidar a quienes la habitan, la organizan y le dan sentido. Es comprender que no hay proyecto educativo posible si el trabajo docente se vuelve una experiencia de desgaste solitario. Es asumir que cuando un docente siente que está solo frente al desborde, no fracasa una persona ni un equipo en particular: retrocede el Estado, retrocede la comunidad y retrocede la idea misma de lo público como espacio de amparo y construcción común.", "También hay que animarse a decir algo más: la naturalización de esta soledad es una forma de violencia. Que un docente se acostumbre a convivir con el miedo, con la desprotección o con la incertidumbre permanente no puede transformarse en parte “normal” del trabajo. Que tenga que medir cada palabra, cada intervención o cada límite desde la lógica de la autopreservación tampoco es normal. Que deba volver a su casa cargando no solo planificación, correcciones y reuniones, sino además escenas de angustia, humillación o amenaza, no puede ser leído como un costo inevitable de la profesión.", "Por eso hay que romper el aislamiento. Y romperlo implica mucho más que expresar solidaridad en momentos de crisis. Implica reconstruir una conversación social honesta sobre qué escuela queremos, qué lugar le damos a quienes enseñan y qué responsabilidades estamos dispuestos a asumir colectivamente. Implica dejar de mirar al docente como un fusible siempre disponible para evitar que todo estalle. Implica entender que cuidar a la docencia no es defender un privilegio sectorial: es proteger una de las bases más importantes de cualquier sociedad democrática.", "No queremos negar lo que nos pasa. No queremos taparlo con eufemismos ni con frases hechas. El primer acto de resistencia política sigue siendo nombrar la realidad. Reconocer que nos duele, que nos cansa, que nos preocupa y que muchas veces nos desborda no es un gesto de debilidad; es el punto de partida para dejar de sostener todo en soledad y empezar a reconstruir, nuevamente, una red comunitaria, institucional y política que esté a la altura del momento.", "La soledad del guardapolvo no es un destino inevitable. Es una señal de alarma. Una advertencia. Un llamado urgente a revisar prioridades, a asumir responsabilidades y a recuperar la densidad colectiva que la escuela necesita para seguir siendo mucho más que un lugar al que se va a cumplir horario. Porque si cada docente entra a su escuela sintiendo que entra solo a una batalla que no pidió librar, entonces lo que está en crisis no es únicamente la convivencia escolar: es el pacto social que debería sostenerla.", "Y frente a eso no alcanza con preocuparse. Hace falta debatir, hace falta organizarse, hace falta construir unidad y hace falta decidir, de una vez, que nunca más un docente quede solo allí donde debería estar más acompañado que nunca."], "pullQuote": "“Cuando un docente siente que está solo frente al desborde, retrocede el Estado, retrocede la comunidad y retrocede la idea misma de lo público.”"};
 
     const $ = (selector) => document.querySelector(selector);
     const articleBody = $('#articleBody');
@@ -1280,10 +1225,11 @@
     const articleKicker = $('#articleKicker');
     const articleSummary = $('#articleSummary');
     const articleIntro = $('#articleIntro');
-    const articleAuthor = $('#articleAuthor');
+    const articleAuthor = $('#articleAuthor span');
+    const articleDate = $('#articleDate span');
     const articleImage = $('#articleImage');
     const imageCaption = $('#imageCaption');
-    const readingTime = $('#readingTime');
+    const readingTime = $('#readingTime span');
     const progressBar = $('#progressBar');
     const sharePanel = $('#sharePanel');
     const shareFab = $('#shareFab');
@@ -1304,20 +1250,122 @@
     const commentText = $('#commentText');
     const commentDialogTitle = $('#commentDialogTitle');
     const commentDialogHint = $('#commentDialogHint');
-    const COMMENTS_STORAGE_KEY = 'docentesbrown_guardapolvo_comments_v1';
+    const commentSubmitFrame = $('#commentSubmitFrame');
+    const commentPostBridge = $('#commentPostBridge');
+    const submitCommentBtn = $('#submitCommentBtn');
+    const bridgeNoteId = $('#bridgeNoteId');
+    const bridgeParentId = $('#bridgeParentId');
+    const bridgeAuthor = $('#bridgeAuthor');
+    const bridgeComment = $('#bridgeComment');
+    const bridgeWebsite = $('#bridgeWebsite');
+    const bridgeUserAgent = $('#bridgeUserAgent');
 
-    function getStoredComments() {
-      try {
-        const raw = localStorage.getItem(COMMENTS_STORAGE_KEY);
-        const parsed = raw ? JSON.parse(raw) : [];
-        return Array.isArray(parsed) ? parsed : [];
-      } catch (_) {
-        return [];
-      }
+    let commentsLoaded = false;
+    let commentsSubmitting = false;
+    let lastCommentFrameReady = false;
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
     }
 
-    function saveComments(comments) {
-      localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(comments));
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function setArticle() {
+      articleKicker.textContent = ARTICLE_DATA.kicker;
+      articleTitle.textContent = ARTICLE_DATA.title;
+      articleSummary.textContent = ARTICLE_DATA.summary;
+      articleAuthor.textContent = ARTICLE_DATA.author;
+      articleDate.textContent = ARTICLE_DATA.date;
+      readingTime.textContent = ARTICLE_DATA.readTime;
+      articleIntro.textContent = ARTICLE_DATA.intro;
+      articleImage.src = ARTICLE_DATA.imageSrc;
+      articleImage.alt = ARTICLE_DATA.imageAlt;
+      imageCaption.textContent = ARTICLE_DATA.imageCaption;
+
+      const middleIndex = Math.max(2, Math.floor(ARTICLE_DATA.body.length / 2));
+      ARTICLE_DATA.body.forEach((paragraph, index) => {
+        if (index === 2) {
+          const divider = document.createElement('div');
+          divider.className = 'section-break';
+          divider.innerHTML = '<span>Editorial</span>';
+          articleBody.appendChild(divider);
+        }
+
+        if (index === middleIndex) {
+          const quote = document.createElement('aside');
+          quote.className = 'pull-quote';
+          quote.innerHTML = `<p>${escapeHtml(ARTICLE_DATA.pullQuote)}</p>`;
+          articleBody.appendChild(quote);
+        }
+
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        articleBody.appendChild(p);
+      });
+    }
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    }
+
+    function getShareUrls() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(ARTICLE_DATA.title);
+      return {
+        whatsapp: `https://wa.me/?text=${title}%20${url}`,
+        telegram: `https://t.me/share/url?url=${url}&text=${title}`,
+        x: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+        copy: window.location.href
+      };
+    }
+
+    function openSharePanel(force) {
+      const willOpen = typeof force === 'boolean' ? force : !sharePanel.classList.contains('open');
+      sharePanel.classList.toggle('open', willOpen);
+    }
+
+    async function handleNativeShare() {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: ARTICLE_DATA.title,
+            text: ARTICLE_DATA.summary,
+            url: window.location.href
+          });
+          return;
+        } catch (_) {}
+      }
+      openSharePanel(true);
+    }
+
+    async function handleShare(platform) {
+      const urls = getShareUrls();
+      if (platform === 'copy') {
+        try {
+          await navigator.clipboard.writeText(urls.copy);
+          showToast('Enlace copiado');
+        } catch (_) {
+          showToast('No se pudo copiar el enlace');
+        }
+        return;
+      }
+      const target = urls[platform];
+      if (target) window.open(target, '_blank', 'noopener,noreferrer');
     }
 
     function formatCommentDate(dateString) {
@@ -1334,10 +1382,10 @@
       }
     }
 
-    function commentTree(items, parentId = null) {
+    function commentTree(items, parentId = '') {
       return items
-        .filter((item) => item.parentId === parentId)
-        .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+        .filter((item) => (item.parent_id || '') === parentId)
+        .sort((a, b) => new Date(a.created_at || 0) - new Date(b.created_at || 0))
         .map((item) => ({
           ...item,
           children: commentTree(items, item.id)
@@ -1351,14 +1399,14 @@
       const meta = document.createElement('div');
       meta.className = 'comment-meta';
       meta.innerHTML = `
-        <span class="comment-author">${escapeHtml(comment.name || 'Anónimo')}</span>
-        <span class="comment-date">${formatCommentDate(comment.createdAt)}</span>
+        <span class="comment-author">${escapeHtml(comment.author || 'Anónimo')}</span>
+        <span class="comment-date">${escapeHtml(formatCommentDate(comment.created_at))}</span>
       `;
       article.appendChild(meta);
 
       const text = document.createElement('p');
       text.className = 'comment-text';
-      text.textContent = comment.text;
+      text.textContent = comment.comment || '';
       article.appendChild(text);
 
       const actions = document.createElement('div');
@@ -1367,7 +1415,7 @@
       replyBtn.className = 'comment-reply-btn';
       replyBtn.type = 'button';
       replyBtn.dataset.replyTo = comment.id;
-      replyBtn.dataset.replyName = comment.name || 'Anónimo';
+      replyBtn.dataset.replyName = comment.author || 'Anónimo';
       replyBtn.innerHTML = `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="m9 17-5-5 5-5"></path>
@@ -1399,297 +1447,190 @@
       `;
     }
 
-    function renderComments() {
-      const comments = getStoredComments();
-      updateCommentsToggle(comments.length);
+    function renderComments(items) {
       commentsList.innerHTML = '';
+      updateCommentsToggle(items.length);
 
-      if (!comments.length) {
-        const empty = document.createElement('p');
-        empty.className = 'empty-comments';
-        empty.textContent = 'Todavía no hay comentarios en este navegador. Sé la primera persona en dejar uno.';
-        commentsList.appendChild(empty);
+      if (!items.length) {
+        commentsList.innerHTML = '<p class="empty-comments">Todavía no hay comentarios publicados.</p>';
         return;
       }
 
-      const tree = commentTree(comments);
+      const tree = commentTree(items);
       tree.forEach((comment) => commentsList.appendChild(renderCommentBranch(comment)));
     }
 
-    function openCommentModal(parentId = '', parentName = '') {
+    function renderCommentsStatus(message) {
+      commentsList.innerHTML = `<p class="status-note">${escapeHtml(message)}</p>`;
+    }
+
+    function loadComments() {
+      return new Promise((resolve) => {
+        if (!COMMENTS_API_URL || COMMENTS_API_URL.includes('PEGAR_AQUI')) {
+          renderComments([]);
+          resolve([]);
+          return;
+        }
+
+        const callbackName = `commentsCallback_${Date.now()}_${Math.floor(Math.random() * 100000)}`;
+        const script = document.createElement('script');
+        const cleanup = () => {
+          delete window[callbackName];
+          script.remove();
+        };
+
+        window[callbackName] = (payload) => {
+          cleanup();
+          const items = payload && Array.isArray(payload.comments) ? payload.comments : [];
+          renderComments(items);
+          commentsLoaded = true;
+          resolve(items);
+        };
+
+        script.onerror = () => {
+          cleanup();
+          renderCommentsStatus('No se pudieron cargar los comentarios en este momento.');
+          resolve([]);
+        };
+
+        const url = new URL(COMMENTS_API_URL);
+        url.searchParams.set('action', 'list');
+        url.searchParams.set('note_id', NOTE_ID);
+        url.searchParams.set('callback', callbackName);
+        url.searchParams.set('t', String(Date.now()));
+
+        script.src = url.toString();
+        document.body.appendChild(script);
+      });
+    }
+
+    function openCommentModal(parentId = '', replyName = '') {
       commentParentId.value = parentId;
-      commentForm.reset();
-      commentParentId.value = parentId;
-      commentDialogTitle.textContent = parentId ? 'Responder comentario' : 'Dejar un comentario';
-      commentDialogHint.textContent = parentId
-        ? `Tu respuesta quedará debajo del comentario de ${parentName}.`
-        : 'Tu comentario quedará guardado en este navegador.';
+      commentDialogTitle.textContent = parentId ? 'Responder comentario' : 'Comentar';
+      commentDialogHint.textContent = parentId ? `Tu respuesta se publicará debajo del comentario de ${replyName}.` : 'Tu comentario se publica en esta nota.';
       commentModal.hidden = false;
-      commentModal.setAttribute('aria-hidden', 'false');
-      setTimeout(() => commentText.focus(), 30);
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => commentName.focus(), 30);
     }
 
     function closeCommentModal() {
       commentModal.hidden = true;
-      commentModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
       commentParentId.value = '';
+      commentDialogTitle.textContent = 'Comentar';
+      commentDialogHint.textContent = 'Tu comentario se publica en esta nota.';
       commentForm.reset();
+      commentParentId.value = '';
     }
 
-    function escapeHtml(value) {
-      return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
-    }
+    function submitComment() {
+      if (!COMMENTS_API_URL || COMMENTS_API_URL.includes('PEGAR_AQUI')) {
+        showToast('Falta conectar la URL del backend de comentarios');
+        return;
+      }
 
-    function submitComment(event) {
-      event.preventDefault();
-      const text = commentText.value.trim();
-      const name = commentName.value.trim() || 'Anónimo';
-      const parentId = commentParentId.value || null;
+      const author = commentName.value.trim();
+      const comment = commentText.value.trim();
+      const parentId = commentParentId.value.trim();
+      const website = document.getElementById('commentWebsite').value.trim();
 
-      if (!text) {
+      if (author.length < 2) {
+        showToast('Escribí un nombre válido');
+        commentName.focus();
+        return;
+      }
+
+      if (comment.length < 3) {
+        showToast('Escribí un comentario más largo');
         commentText.focus();
         return;
       }
 
-      const comments = getStoredComments();
-      comments.push({
-        id: `c_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`,
-        parentId,
-        name,
-        text,
-        createdAt: new Date().toISOString()
-      });
+      commentsSubmitting = true;
+      submitCommentBtn.disabled = true;
+      submitCommentBtn.textContent = 'Publicando...';
 
-      saveComments(comments);
-      renderComments();
+      commentPostBridge.action = COMMENTS_API_URL;
+      bridgeNoteId.value = NOTE_ID;
+      bridgeParentId.value = parentId;
+      bridgeAuthor.value = author;
+      bridgeComment.value = comment;
+      bridgeWebsite.value = website;
+      bridgeUserAgent.value = navigator.userAgent.slice(0, 350);
+
+      commentPostBridge.submit();
+
       closeCommentModal();
-      commentsPanel.hidden = false;
-      commentsToggle.setAttribute('aria-expanded', 'true');
-      showToast(parentId ? 'Respuesta publicada' : 'Comentario publicado');
+      showToast('Comentario enviado');
+      setTimeout(() => {
+        loadComments().then(() => {
+          commentsSubmitting = false;
+          submitCommentBtn.disabled = false;
+          submitCommentBtn.textContent = 'Publicar comentario';
+        });
+      }, 1300);
     }
 
-    function renderArticle() {
-      articleKicker.textContent = ARTICLE_DATA.kicker;
-      articleTitle.textContent = ARTICLE_DATA.title;
-      articleSummary.textContent = ARTICLE_DATA.summary;
-      articleIntro.textContent = ARTICLE_DATA.intro;
-      articleAuthor.innerHTML = `${articleAuthor.querySelector('svg').outerHTML}${ARTICLE_DATA.author}`;
-      articleImage.src = ARTICLE_DATA.image;
-      articleImage.alt = ARTICLE_DATA.imageAlt;
-      imageCaption.textContent = ARTICLE_DATA.imageCaption;
-      document.title = `${ARTICLE_DATA.title} | ${ARTICLE_DATA.siteName}`;
-      document.querySelector('meta[name="description"]').setAttribute('content', ARTICLE_DATA.summary);
+    setArticle();
+    renderComments([]);
 
-      const fullText = ARTICLE_DATA.paragraphs.join(' ');
-      const words = fullText.trim().split(/\s+/).length;
-      const minutes = Math.max(1, Math.round(words / 190));
-      readingTime.innerHTML = `${readingTime.querySelector('svg').outerHTML}${minutes} min de lectura`;
-
-      articleBody.innerHTML = '';
-      ARTICLE_DATA.paragraphs.forEach((paragraph, index) => {
-        const p = document.createElement('p');
-        p.textContent = paragraph;
-        articleBody.appendChild(p);
-
-        if (index === 1) {
-          const divider = document.createElement('div');
-          divider.className = 'section-break';
-          divider.innerHTML = '<span>seguir leyendo</span>';
-          articleBody.appendChild(divider);
-        }
-
-        if (index === 3) {
-          const quote = document.createElement('aside');
-          quote.className = 'pull-quote';
-          quote.innerHTML = `<p>${ARTICLE_DATA.pullQuote}</p>`;
-          articleBody.appendChild(quote);
-        }
-      });
-    }
-
-    function updateProgress() {
-      const doc = document.documentElement;
-      const scrollTop = doc.scrollTop || document.body.scrollTop;
-      const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const percent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      progressBar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
-    }
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      clearTimeout(showToast._timer);
-      showToast._timer = setTimeout(() => toast.classList.remove('show'), 1900);
-    }
-
-    function getShareData() {
-      const url = window.location.href;
-      const title = ARTICLE_DATA.title;
-      const text = `${ARTICLE_DATA.summary} ${url}`;
-      return { url, title, text };
-    }
-
-    async function nativeShare() {
-      const data = getShareData();
-      if (navigator.share) {
-        try {
-          await navigator.share(data);
-        } catch (_) {}
-      } else {
-        toggleSharePanel(true);
-      }
-    }
-
-    function isMobileLike() {
-      return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-    }
-
-    function tryDeepLink({ appUrl, webUrl }) {
-      const mobile = isMobileLike();
-      if (!mobile || !appUrl) {
-        window.open(webUrl, '_blank', 'noopener');
-        return;
-      }
-
-      const start = Date.now();
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = appUrl;
-      document.body.appendChild(iframe);
-
-      const timeout = setTimeout(() => {
-        if (Date.now() - start < 1600) {
-          window.location.href = webUrl;
-        }
-        iframe.remove();
-      }, 900);
-
-      window.addEventListener('pagehide', () => clearTimeout(timeout), { once: true });
-    }
-
-    async function copyLink() {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        showToast('Enlace copiado');
-      } catch (_) {
-        const input = document.createElement('input');
-        input.value = window.location.href;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand('copy');
-        input.remove();
-        showToast('Enlace copiado');
-      }
-    }
-
-    function handleShare(platform) {
-      const { url, title, text } = getShareData();
-      const encodedUrl = encodeURIComponent(url);
-      const encodedTitle = encodeURIComponent(title);
-      const encodedText = encodeURIComponent(text);
-
-      switch (platform) {
-        case 'native':
-          nativeShare();
-          break;
-        case 'whatsapp':
-          tryDeepLink({
-            appUrl: `whatsapp://send?text=${encodedText}`,
-            webUrl: `https://api.whatsapp.com/send?text=${encodedText}`
-          });
-          break;
-        case 'telegram':
-          tryDeepLink({
-            appUrl: `tg://msg_url?text=${encodedTitle}&url=${encodedUrl}`,
-            webUrl: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`
-          });
-          break;
-        case 'x':
-          tryDeepLink({
-            appUrl: `twitter://post?message=${encodedTitle}%20${encodedUrl}`,
-            webUrl: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`
-          });
-          break;
-        case 'facebook':
-          tryDeepLink({
-            appUrl: `fb://facewebmodal/f?href=https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-            webUrl: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
-          });
-          break;
-        case 'linkedin':
-          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, '_blank', 'noopener');
-          break;
-        case 'email':
-          window.location.href = `mailto:?subject=${encodedTitle}&body=${encodedText}`;
-          break;
-        case 'copy':
-          copyLink();
-          break;
-      }
-
-      if (platform !== 'native') toggleSharePanel(false);
-    }
-
-    function toggleSharePanel(force) {
-      const shouldOpen = typeof force === 'boolean' ? force : !sharePanel.classList.contains('open');
-      sharePanel.classList.toggle('open', shouldOpen);
-    }
-
-    renderArticle();
-    updateProgress();
     window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
+    window.addEventListener('load', updateProgress);
 
-    shareFab.addEventListener('click', () => toggleSharePanel());
-    toggleShareTop.addEventListener('click', () => toggleSharePanel());
-    closeSharePanel.addEventListener('click', () => toggleSharePanel(false));
-    nativeShareTop.addEventListener('click', nativeShare);
+    nativeShareTop.addEventListener('click', handleNativeShare);
+    shareFab.addEventListener('click', () => openSharePanel());
+    toggleShareTop.addEventListener('click', () => openSharePanel(true));
+    closeSharePanel.addEventListener('click', () => openSharePanel(false));
+
+    document.querySelectorAll('.share-action').forEach((btn) => {
+      btn.addEventListener('click', () => handleShare(btn.dataset.platform));
+    });
 
     document.addEventListener('click', (event) => {
-      const shareButton = event.target.closest('.share-action');
-      if (shareButton) {
-        handleShare(shareButton.dataset.platform);
-        return;
-      }
-
-      const clickInsidePanel = event.target.closest('#sharePanel, #shareFab, #toggleShareTop');
-      if (!clickInsidePanel && sharePanel.classList.contains('open')) {
-        toggleSharePanel(false);
+      if (
+        sharePanel.classList.contains('open') &&
+        !sharePanel.contains(event.target) &&
+        !shareFab.contains(event.target) &&
+        !toggleShareTop.contains(event.target)
+      ) {
+        openSharePanel(false);
       }
     });
 
-    renderComments();
-
-    commentsToggle.addEventListener('click', () => {
-      const expanded = commentsToggle.getAttribute('aria-expanded') === 'true';
-      commentsToggle.setAttribute('aria-expanded', String(!expanded));
-      commentsPanel.hidden = expanded;
+    commentsToggle.addEventListener('click', async () => {
+      const willOpen = commentsPanel.hidden;
+      commentsPanel.hidden = !commentsPanel.hidden;
+      commentsToggle.setAttribute('aria-expanded', String(willOpen));
+      if (willOpen && !commentsLoaded) {
+        await loadComments();
+      }
     });
 
     openCommentModalBtn.addEventListener('click', () => openCommentModal());
     closeCommentModalBtn.addEventListener('click', closeCommentModal);
     cancelCommentModalBtn.addEventListener('click', closeCommentModal);
-    commentForm.addEventListener('submit', submitComment);
+
+    commentForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      submitComment();
+    });
 
     commentsList.addEventListener('click', (event) => {
-      const replyBtn = event.target.closest('.comment-reply-btn');
+      const replyBtn = event.target.closest('[data-reply-to]');
       if (!replyBtn) return;
-      openCommentModal(replyBtn.dataset.replyTo || '', replyBtn.dataset.replyName || 'Anónimo');
+      openCommentModal(replyBtn.dataset.replyTo || '', replyBtn.dataset.replyName || 'este comentario');
     });
 
     commentModal.addEventListener('click', (event) => {
-      if (event.target === commentModal) closeCommentModal();
+      if (event.target === commentModal) {
+        closeCommentModal();
+      }
     });
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
-        toggleSharePanel(false);
         if (!commentModal.hidden) closeCommentModal();
+        if (sharePanel.classList.contains('open')) openSharePanel(false);
       }
     });
   </script>
