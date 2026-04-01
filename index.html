@@ -214,7 +214,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 24px;
       align-items: center;
     }
@@ -274,20 +274,25 @@
       font-size: 0.92rem;
     }
 
-    .hero-image-wrap {
-      position: relative;
-      min-height: 420px;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 24px 50px rgba(36,73,110,0.18);
-      background: #e9eef3;
+    .feature-image-fullbleed {
+      margin: 26px calc(50% - 50vw) 0;
+      width: 100vw;
     }
 
-    .hero-image-wrap::after {
+    .feature-image-frame {
+      position: relative;
+      width: 100%;
+      min-height: clamp(320px, 62vw, 820px);
+      overflow: hidden;
+      background: #e9eef3;
+      box-shadow: 0 24px 50px rgba(36,73,110,0.18);
+    }
+
+    .feature-image-frame::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(10,15,20,0) 28%, rgba(10,15,20,0.16) 100%);
+      background: linear-gradient(180deg, rgba(10,15,20,0) 25%, rgba(10,15,20,0.22) 100%);
       pointer-events: none;
     }
 
@@ -300,13 +305,13 @@
 
     .image-caption {
       position: absolute;
-      left: 16px;
-      bottom: 16px;
+      left: 18px;
+      bottom: 18px;
       z-index: 1;
-      max-width: calc(100% - 32px);
+      max-width: calc(100% - 36px);
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.76);
+      background: rgba(255,255,255,0.78);
       backdrop-filter: blur(10px);
       font-size: 0.86rem;
       color: #44515e;
@@ -456,6 +461,286 @@
 
     .menu-item {
       border-radius: 16px;
+    }
+
+    .comments-wrap {
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(36,73,110,0.12);
+    }
+
+    .comments-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(36,73,110,0.12);
+      background: rgba(255,255,255,0.78);
+      color: var(--accent);
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .comments-toggle span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comments-toggle svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .comments-toggle[aria-expanded="true"] svg:last-child {
+      transform: rotate(180deg);
+    }
+
+    .comments-panel {
+      margin-top: 16px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .comments-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .comments-title {
+      margin: 0;
+      font-size: 1rem;
+      color: #1f2933;
+    }
+
+    .comments-subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .comment-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,73,110,0.12);
+      background: linear-gradient(135deg, rgba(36,73,110,0.98), rgba(77,111,147,0.98));
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(36,73,110,0.18);
+    }
+
+    .comments-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .empty-comments {
+      margin: 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      color: var(--muted);
+      border: 1px dashed rgba(36,73,110,0.18);
+    }
+
+    .comment-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(36,73,110,0.10);
+    }
+
+    .comment-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      margin-bottom: 10px;
+    }
+
+    .comment-author {
+      font-weight: 800;
+      color: #17222d;
+    }
+
+    .comment-date {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .comment-text {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #24303b;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .comment-reply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,73,110,0.12);
+      background: rgba(255,255,255,0.72);
+      color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .comment-children {
+      margin-top: 14px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(36,73,110,0.10);
+      display: grid;
+      gap: 12px;
+    }
+
+    .comment-modal[hidden],
+    .comments-panel[hidden] {
+      display: none;
+    }
+
+    .comment-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(18, 26, 35, 0.42);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .comment-dialog {
+      width: min(620px, 100%);
+      padding: 22px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .comment-dialog-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .comment-dialog h3 {
+      margin: 0;
+      font-size: 1.16rem;
+      color: #17222d;
+    }
+
+    .comment-dialog p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .comment-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .comment-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .comment-field label {
+      font-weight: 700;
+      color: #22313f;
+      font-size: 0.94rem;
+    }
+
+    .comment-field input,
+    .comment-field textarea {
+      width: 100%;
+      border: 1px solid rgba(36,73,110,0.14);
+      border-radius: 16px;
+      background: rgba(248,250,252,0.92);
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    .comment-field input:focus,
+    .comment-field textarea:focus {
+      border-color: rgba(36,73,110,0.36);
+      box-shadow: 0 0 0 4px rgba(36,73,110,0.08);
+    }
+
+    .comment-field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .comment-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,73,110,0.12);
+      background: rgba(255,255,255,0.86);
+      color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), #3e678c);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 16px 28px rgba(36,73,110,0.20);
     }
 
     .footer-note {
@@ -616,8 +901,17 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-image-wrap {
-        min-height: 300px;
+      .feature-image-frame {
+        min-height: clamp(260px, 58vw, 520px);
+      }
+
+      .comments-panel {
+        padding: 16px;
+      }
+
+      .comment-dialog {
+        padding: 18px;
+        border-radius: 24px;
       }
 
       .hero-text h1 {
@@ -656,6 +950,26 @@
 
       .share-grid {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-image-fullbleed {
+        margin-top: 20px;
+      }
+
+      .image-caption {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+        border-radius: 16px;
+      }
+
+      .comments-toggle {
+        padding: 14px 16px;
+      }
+
+      .comment-children {
+        padding-left: 12px;
       }
     }
 
@@ -728,13 +1042,15 @@
               </span>
             </div>
           </div>
-
-          <figure class="hero-image-wrap">
-            <img id="articleImage" class="hero-image" alt="Imagen central de la nota" />
-            <figcaption class="image-caption" id="imageCaption">Imagen central de la edición</figcaption>
-          </figure>
         </div>
       </section>
+
+      <figure class="feature-image-fullbleed" aria-label="Imagen principal de la nota">
+        <div class="feature-image-frame">
+          <img id="articleImage" class="hero-image" alt="Imagen central de la nota" />
+          <figcaption class="image-caption" id="imageCaption">Imagen central de la edición</figcaption>
+        </div>
+      </figure>
 
       <div class="content-wrap">
         <article class="article-card" id="articulo">
@@ -752,6 +1068,38 @@
               Volver arriba
             </a>
           </div>
+
+          <section class="comments-wrap" aria-labelledby="commentsToggleLabel">
+            <button class="comments-toggle" id="commentsToggle" type="button" aria-expanded="false" aria-controls="commentsPanel">
+              <span id="commentsToggleLabel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Ver comentarios...
+              </span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+
+            <div class="comments-panel" id="commentsPanel" hidden>
+              <div class="comments-header">
+                <div>
+                  <h3 class="comments-title">Comentarios</h3>
+                  <p class="comments-subtitle">Podés dejar tu aporte y responder otros comentarios.</p>
+                </div>
+                <button class="comment-cta" id="openCommentModal" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 5v14"></path>
+                    <path d="M5 12h14"></path>
+                  </svg>
+                  Comentar...
+                </button>
+              </div>
+
+              <div class="comments-list" id="commentsList"></div>
+            </div>
+          </section>
         </article>
 
         <aside class="sidebar" aria-label="Información y opciones de compartir">
@@ -860,6 +1208,39 @@
     </div>
   </section>
 
+  <div class="comment-modal" id="commentModal" hidden aria-hidden="true">
+    <div class="comment-dialog" role="dialog" aria-modal="true" aria-labelledby="commentDialogTitle">
+      <div class="comment-dialog-head">
+        <div>
+          <h3 id="commentDialogTitle">Dejar un comentario</h3>
+          <p id="commentDialogHint">Tu comentario quedará guardado en este navegador.</p>
+        </div>
+        <button class="icon-btn" id="closeCommentModal" type="button" aria-label="Cerrar ventana de comentarios">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <form class="comment-form" id="commentForm">
+        <input type="hidden" id="commentParentId" value="" />
+        <div class="comment-field">
+          <label for="commentName">Nombre</label>
+          <input id="commentName" name="commentName" type="text" maxlength="60" placeholder="Tu nombre o seudónimo" />
+        </div>
+        <div class="comment-field">
+          <label for="commentText">Comentario</label>
+          <textarea id="commentText" name="commentText" maxlength="1200" placeholder="Escribí tu comentario..." required></textarea>
+        </div>
+        <div class="comment-form-actions">
+          <button class="ghost-btn" id="cancelCommentModal" type="button">Cancelar</button>
+          <button class="primary-btn" type="submit">Publicar comentario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
@@ -910,6 +1291,187 @@
     const closeSharePanel = $('#closeSharePanel');
     const nativeShareTop = $('#nativeShareTop');
     const toast = $('#toast');
+    const commentsToggle = $('#commentsToggle');
+    const commentsPanel = $('#commentsPanel');
+    const commentsList = $('#commentsList');
+    const openCommentModalBtn = $('#openCommentModal');
+    const commentModal = $('#commentModal');
+    const closeCommentModalBtn = $('#closeCommentModal');
+    const cancelCommentModalBtn = $('#cancelCommentModal');
+    const commentForm = $('#commentForm');
+    const commentParentId = $('#commentParentId');
+    const commentName = $('#commentName');
+    const commentText = $('#commentText');
+    const commentDialogTitle = $('#commentDialogTitle');
+    const commentDialogHint = $('#commentDialogHint');
+    const COMMENTS_STORAGE_KEY = 'docentesbrown_guardapolvo_comments_v1';
+
+    function getStoredComments() {
+      try {
+        const raw = localStorage.getItem(COMMENTS_STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function saveComments(comments) {
+      localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(comments));
+    }
+
+    function formatCommentDate(dateString) {
+      try {
+        return new Intl.DateTimeFormat('es-AR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).format(new Date(dateString));
+      } catch (_) {
+        return '';
+      }
+    }
+
+    function commentTree(items, parentId = null) {
+      return items
+        .filter((item) => item.parentId === parentId)
+        .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+        .map((item) => ({
+          ...item,
+          children: commentTree(items, item.id)
+        }));
+    }
+
+    function renderCommentBranch(comment) {
+      const article = document.createElement('article');
+      article.className = 'comment-card';
+
+      const meta = document.createElement('div');
+      meta.className = 'comment-meta';
+      meta.innerHTML = `
+        <span class="comment-author">${escapeHtml(comment.name || 'Anónimo')}</span>
+        <span class="comment-date">${formatCommentDate(comment.createdAt)}</span>
+      `;
+      article.appendChild(meta);
+
+      const text = document.createElement('p');
+      text.className = 'comment-text';
+      text.textContent = comment.text;
+      article.appendChild(text);
+
+      const actions = document.createElement('div');
+      actions.className = 'comment-actions';
+      const replyBtn = document.createElement('button');
+      replyBtn.className = 'comment-reply-btn';
+      replyBtn.type = 'button';
+      replyBtn.dataset.replyTo = comment.id;
+      replyBtn.dataset.replyName = comment.name || 'Anónimo';
+      replyBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m9 17-5-5 5-5"></path>
+          <path d="M20 18v-2a4 4 0 0 0-4-4H4"></path>
+        </svg>
+        Responder
+      `;
+      actions.appendChild(replyBtn);
+      article.appendChild(actions);
+
+      if (comment.children && comment.children.length) {
+        const children = document.createElement('div');
+        children.className = 'comment-children';
+        comment.children.forEach((child) => children.appendChild(renderCommentBranch(child)));
+        article.appendChild(children);
+      }
+
+      return article;
+    }
+
+    function updateCommentsToggle(count) {
+      const label = count > 0 ? `Ver comentarios... (${count})` : 'Ver comentarios...';
+      const labelNode = document.getElementById('commentsToggleLabel');
+      labelNode.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        ${label}
+      `;
+    }
+
+    function renderComments() {
+      const comments = getStoredComments();
+      updateCommentsToggle(comments.length);
+      commentsList.innerHTML = '';
+
+      if (!comments.length) {
+        const empty = document.createElement('p');
+        empty.className = 'empty-comments';
+        empty.textContent = 'Todavía no hay comentarios en este navegador. Sé la primera persona en dejar uno.';
+        commentsList.appendChild(empty);
+        return;
+      }
+
+      const tree = commentTree(comments);
+      tree.forEach((comment) => commentsList.appendChild(renderCommentBranch(comment)));
+    }
+
+    function openCommentModal(parentId = '', parentName = '') {
+      commentParentId.value = parentId;
+      commentForm.reset();
+      commentParentId.value = parentId;
+      commentDialogTitle.textContent = parentId ? 'Responder comentario' : 'Dejar un comentario';
+      commentDialogHint.textContent = parentId
+        ? `Tu respuesta quedará debajo del comentario de ${parentName}.`
+        : 'Tu comentario quedará guardado en este navegador.';
+      commentModal.hidden = false;
+      commentModal.setAttribute('aria-hidden', 'false');
+      setTimeout(() => commentText.focus(), 30);
+    }
+
+    function closeCommentModal() {
+      commentModal.hidden = true;
+      commentModal.setAttribute('aria-hidden', 'true');
+      commentParentId.value = '';
+      commentForm.reset();
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function submitComment(event) {
+      event.preventDefault();
+      const text = commentText.value.trim();
+      const name = commentName.value.trim() || 'Anónimo';
+      const parentId = commentParentId.value || null;
+
+      if (!text) {
+        commentText.focus();
+        return;
+      }
+
+      const comments = getStoredComments();
+      comments.push({
+        id: `c_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`,
+        parentId,
+        name,
+        text,
+        createdAt: new Date().toISOString()
+      });
+
+      saveComments(comments);
+      renderComments();
+      closeCommentModal();
+      commentsPanel.hidden = false;
+      commentsToggle.setAttribute('aria-expanded', 'true');
+      showToast(parentId ? 'Respuesta publicada' : 'Comentario publicado');
+    }
 
     function renderArticle() {
       articleKicker.textContent = ARTICLE_DATA.kicker;
@@ -1101,8 +1663,34 @@
       }
     });
 
+    renderComments();
+
+    commentsToggle.addEventListener('click', () => {
+      const expanded = commentsToggle.getAttribute('aria-expanded') === 'true';
+      commentsToggle.setAttribute('aria-expanded', String(!expanded));
+      commentsPanel.hidden = expanded;
+    });
+
+    openCommentModalBtn.addEventListener('click', () => openCommentModal());
+    closeCommentModalBtn.addEventListener('click', closeCommentModal);
+    cancelCommentModalBtn.addEventListener('click', closeCommentModal);
+    commentForm.addEventListener('submit', submitComment);
+
+    commentsList.addEventListener('click', (event) => {
+      const replyBtn = event.target.closest('.comment-reply-btn');
+      if (!replyBtn) return;
+      openCommentModal(replyBtn.dataset.replyTo || '', replyBtn.dataset.replyName || 'Anónimo');
+    });
+
+    commentModal.addEventListener('click', (event) => {
+      if (event.target === commentModal) closeCommentModal();
+    });
+
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') toggleSharePanel(false);
+      if (event.key === 'Escape') {
+        toggleSharePanel(false);
+        if (!commentModal.hidden) closeCommentModal();
+      }
     });
   </script>
 </body>
